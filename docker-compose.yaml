@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  # Database
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - "3080:3080"
+    environment:
+      MYSQL_ROOT_PASSWORD: RootAppCourse,789
+      MYSQL_DATABASE: appcourse
+      MYSQL_USER: appcourse
+      MYSQL_PASSWORD: AppCourse,789
+    networks:
+      - appcourse
+networks:
+  appcourse:
+volumes:
+  db_data:
