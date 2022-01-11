@@ -8,7 +8,7 @@ services:
       - db_data:/var/lib/mysql
     restart: always
     ports:
-      - "3080:3080"
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: RootAppCourse,789
       MYSQL_DATABASE: appcourse
