@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Service.Data;
+using Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,10 @@ builder.Services
         )
     );
 
+// configure DI for application services
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,7 +32,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseAuthorization();
 
