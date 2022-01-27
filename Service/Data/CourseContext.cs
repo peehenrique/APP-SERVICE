@@ -5,6 +5,7 @@ namespace Service.Data;
 
 public class CourseContext : DbContext
 {
+    public DbSet<Course> Courses { get; set; }
     public DbSet<User> Users { get; set; }
 
     public CourseContext(DbContextOptions<CourseContext> options)

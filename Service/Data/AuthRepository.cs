@@ -11,13 +11,13 @@ public class AuthRepository : IAuthRepository
     public AuthRepository(CourseContext context)
     {
         _Context = context;
-    }    
+    }
 
     public async Task<User?> GetSingle(Expression<Func<User, bool>> predicate)
     {
-       var entity = await _Context.Users.Where(predicate).AsNoTrackingWithIdentityResolution().FirstOrDefaultAsync();
+        var entity = await _Context.Users.Where(predicate).AsNoTrackingWithIdentityResolution().FirstOrDefaultAsync();
 
-       return entity;
+        return entity;
     }
 }
 

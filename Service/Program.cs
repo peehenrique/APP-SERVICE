@@ -50,7 +50,9 @@ builder.Services.AddAuthentication(x =>
 
 // configure DI for application services
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddSingleton<Jwt>();
 
 var app = builder.Build();
